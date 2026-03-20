@@ -1,0 +1,40 @@
+#content {
+    border: 1px solid black;
+    background-color: lightsalmon;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header,
+footer {
+    background-color: yellow;
+    padding: 1rem;
+}
+
+main {
+    background-color: lightblue;
+    padding: 1rem;
+}
+
+aside {
+    background-color: lightgreen;
+    padding: 1rem;
+}
+
+article {
+    background-color: lightgray;
+    padding: 1rem;
+}
+
+@media (min-width: 600px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        display: none;
+    }
+}
