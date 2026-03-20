@@ -28,13 +28,3 @@ article {
     background-color: lightgray;
     padding: 1rem;
 }
-
-@media (min-width: 600px) {
-    main {
-        grid-template-columns: 1fr;
-    }
-
-    aside {
-        display: none;
-    }
-}
