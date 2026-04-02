@@ -132,7 +132,7 @@ h2 {
     background: #c06a89;
 }
 
-.game1.hp-bar {
+.game1hp-bar {
     width: 140px;
     height: 12px;
     background: #523f3b;
@@ -141,14 +141,14 @@ h2 {
     overflow: hidden;
 }
 
-.game1.hp-bar-inner {
+.game1hp-bar-inner {
     height: 100%;
     background: linear-gradient(90deg, #a41e1e, #ec8282);
     width: 100%;
     transition: width 0.1s linear;
 }
 
-.game1.controls {
+.game1controls {
     font-size: 0.85rem;
     color: #d1c5b7;
     margin-top: 0.4rem;
