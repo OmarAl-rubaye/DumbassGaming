@@ -4,25 +4,41 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game 2 - DumbAssGaming</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>English Game - Simple Games</title>
+    <link rel="stylesheet" href="game2styles.css" />
 </head>
 
 <body>
     <div id="content">
         <header>
-
+            <h1>Learning English</h1>
         </header>
+
         <main>
 
             <nav>
                 <a class="button" href="index.html">Back to Home</a>
             </nav>
+
+            <h2>Käännä englanniksi</h2>
+
+            <p id="question"></p>
+
+            <input type="text" id="answer" placeholder="Kirjoita vastaus">
+            <button onclick="checkAnswer()">Tarkista</button>
+
+            <p id="result"></p>
+            <p>Pisteet: <span id="score">0</span></p>
+
         </main>
+
         <footer>
-            <p>&copy; 2026 DumbAssGaming</p>
+            <p>&copy; 2026 Simple Games</p>
         </footer>
     </div>
+
+    <!-- Linkki JavaScript tiedostoon -->
+    <script src="game2.js"></script>
 </body>
 
 </html>
