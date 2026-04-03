@@ -41,7 +41,7 @@
 
             <div class="game1controls">
                 Controls: W/A/S/D or arrows to move; mouse to aim; automatic bullets auto-fire;
-                reach 1k score to trigger a short power-up.
+                reach 1k score to trigger a short power-up. Game gets harder after 1000 points - tougher enemies give more XP!
             </div>
         </main>
 
@@ -108,7 +108,7 @@
                 x: state.width / 2,
                 y: state.height / 2,
                 size: 10,
-                speed: 3.2,
+                speed: 200,
                 fireRate: 160,
             };
         }
@@ -130,8 +130,22 @@
                 y = state.height + 20;
             }
 
-            const speed = 1.1 + Math.min(state.wave * 0.06, 2.2);
-            state.enemies.push({ x, y, size: 10 + Math.min(state.wave, 6), speed, hp: 1 + Math.floor(state.wave / 3) });
+            
+            let speed = 66 + Math.min(state.wave * 3.6, 66);
+            let size = 10 + Math.min(state.wave, 6);
+            let hp = 1 + Math.floor(state.wave / 3);
+            let enemyType = 'normal';
+
+            
+            if (state.score >= 1000) {
+                const difficultyMultiplier = 1 + Math.floor((state.score - 1000) / 500) * 0.25; 
+                speed *= difficultyMultiplier;
+                size *= Math.min(difficultyMultiplier, 2);
+                hp = Math.ceil(hp * difficultyMultiplier);
+                enemyType = 'hard';
+            }
+
+            state.enemies.push({ x, y, size, speed, hp, enemyType });
         }
 
         function spawnWave() {
@@ -147,7 +161,7 @@
         }
 
         function updateUI() {
-            ui.wave.textContent = state.wave;
+            ui.wave.textContent = state.wave + (state.score >= 1000 ? ' (HARD)' : '');
             ui.score.textContent = state.score;
             ui.enemyCount.textContent = state.enemies.length;
             const hpRate = Math.max(0, state.health / state.maxHealth) * 100;
@@ -174,7 +188,7 @@
             if (state.gameOver) return;
 
             const p = state.players;
-            const speed = p.speed * (state.powerUp ? 1.35 : 1);
+            const speed = p.speed * (state.powerUp ? 1.35 : 1) * (dt / 1000);
 
             if (state.keys['w'] || state.keys['ArrowUp']) p.y -= speed;
             if (state.keys['s'] || state.keys['ArrowDown']) p.y += speed;
@@ -200,8 +214,8 @@
                     state.bullets.push({
                         x: p.x + Math.cos(angle + spread) * 14,
                         y: p.y + Math.sin(angle + spread) * 14,
-                        vx: Math.cos(angle + spread) * 8.6,
-                        vy: Math.sin(angle + spread) * 8.6,
+                        vx: Math.cos(angle + spread) * 516,
+                        vy: Math.sin(angle + spread) * 516,
                         size: 4,
                         life: 1.2,
                     });
@@ -209,8 +223,8 @@
             }
 
             state.bullets = state.bullets.filter((b) => {
-                b.x += b.vx;
-                b.y += b.vy;
+                b.x += b.vx * (dt / 1000);
+                b.y += b.vy * (dt / 1000);
                 b.life -= dt / 1000;
                 return b.life > 0 && b.x > -20 && b.x < state.width + 20 && b.y > -20 && b.y < state.height + 20;
             });
@@ -219,8 +233,9 @@
                 const dx = p.x - e.x;
                 const dy = p.y - e.y;
                 const dist = Math.hypot(dx, dy);
-                e.x += (dx / dist) * e.speed;
-                e.y += (dy / dist) * e.speed;
+                const moveSpeed = e.speed * (dt / 1000);
+                e.x += (dx / dist) * moveSpeed;
+                e.y += (dy / dist) * moveSpeed;
 
                 if (dist < e.size + p.size) {
                     state.health -= 12;
@@ -240,7 +255,12 @@
                         e.hp -= state.powerUp ? 2 : 1;
                         b.life = 0;
                         if (e.hp <= 0) {
-                            state.score += 15 + state.wave;
+                            let baseScore = 15 + state.wave;
+                            
+                            if (e.enemyType === 'hard') {
+                                baseScore += 25;
+                            }
+                            state.score += baseScore;
                             if (Math.random() < 0.12) addPickup(e.x, e.y);
                         }
                         break;
@@ -305,13 +325,16 @@
             ctx.restore();
 
             for (const e of state.enemies) {
-                ctx.fillStyle = '#a52b2b';
+                
+                ctx.fillStyle = e.enemyType === 'hard' ? '#8b0000' : '#a52b2b'; 
                 ctx.beginPath();
                 ctx.arc(e.x, e.y, e.size, 0, Math.PI * 2);
                 ctx.fill();
 
+                
+                const maxHp = e.enemyType === 'hard' ? Math.ceil((1 + Math.floor(state.wave / 3)) * (1 + Math.floor((state.score - 1000) / 500) * 0.25)) : 1 + Math.floor(state.wave / 3);
                 ctx.fillStyle = '#111';
-                ctx.fillRect(e.x - e.size * 0.8, e.y + e.size + 2, (e.hp / (1 + Math.floor(state.wave / 3))) * e.size * 1.6, 4);
+                ctx.fillRect(e.x - e.size * 0.8, e.y + e.size + 2, (e.hp / maxHp) * e.size * 1.6, 4);
             }
 
             for (const b of state.bullets) {

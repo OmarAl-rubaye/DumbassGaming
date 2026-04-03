@@ -149,8 +149,13 @@ h2 {
 }
 
 .game1controls {
-    font-size: 0.85rem;
-    color: #d1c5b7;
-    margin-top: 0.4rem;
-    line-height: 1.35;
+    font-size: 1rem;
+    color: #3d352d;
+    margin-top: 0.8rem;
+    line-height: 1.5;
+    background-color: #ece1d6;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #cfc4b7;
+    font-weight: 500;
 }
