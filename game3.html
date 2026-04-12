@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">  
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Game 3 - Memory Game</title>
+
+    <link rel="stylesheet"  href="styles.css" />
+    <link rel="stylesheet"  href="../DumbassGaming/game3.css">
+</head>
+
+<body>
+
+    <div id="content">
+        <header></header>
+
+        <main>
+        <nav>
+                <a class= "button" href="index.html">Back to Home</a>
+            </nav>
+
+            <h1>Muistipeli</h1>
+
+            <div  id="gameBoard" class="game-board"> </div>
+        </main>
+
+        <footer>
+            <p> &copy; 2026 Simple Games </p> 
+
+        </footer>
+    </div>
+
+    <div id="winMessage" class="overlay hidden">
+        <div class="popup">
+            <h2>🎉 Voitit pelin!</h2>
+            <button onclick="restartGame()">Pelaa uudestaan</button>
+        </div>
+    </div>
+
+    <script src="../DumbassGaming/game3.js"> </script>
+
+</body>
+
+</html>
