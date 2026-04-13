@@ -9,3 +9,5 @@ Joel Kangas, GitHub: JoelKan1
 Henri Klint, GitHub: HKA4
 
 Omar Al-Rubaye, GitHub: OmarAl-rubaye
+
+Simo Kotajärvi, Github: simokottis
