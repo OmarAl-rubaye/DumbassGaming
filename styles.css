@@ -48,6 +48,122 @@ main {
     border-radius: 6px;
     font-weight: 600;
 }
+.game5-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.game5-panel {
+    display: grid;
+    gap: 1rem;
+}
+
+.game5-status {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #f5efe8;
+    border-radius: 10px;
+    border: 1px solid #d0c5b7;
+    text-align: center;
+    font-weight: 600;
+}
+
+.game5-question-area {
+    padding: 1rem;
+    background: #fffdf8;
+    border: 1px solid #d3c7b9;
+    border-radius: 10px;
+}
+
+.game5-question {
+    margin: 0 0 1rem;
+    font-size: 1.35rem;
+    line-height: 1.4;
+}
+
+.game5-answers {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.game5-answer {
+    background-color: #7d755f;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    min-height: 50px;
+}
+
+.game5-answer:hover,
+.game5-answer:focus {
+    background-color: #5f5747;
+}
+
+.game5-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.game5-feedback {
+    min-height: 2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.game5-feedback.correct {
+    color: #2d6a2b;
+}
+
+.game5-feedback.wrong {
+    color: #9f1c1c;
+}
+
+.game5-tip {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #553f33;
+}
+
+.game5-simple {
+    display: grid;
+    gap: 1rem;
+}
+
+.game5-simple-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.game5-simple-row label {
+    min-width: 70px;
+    font-weight: 600;
+}
+
+.game5-simple-row input {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #cfc4b7;
+    font-size: 1rem;
+}
+
+.game5-simple-status {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: #f5efe8;
+    border: 1px solid #d0c5b7;
+    border-radius: 10px;
+}
 
 .button:hover,
 .button:focus {
