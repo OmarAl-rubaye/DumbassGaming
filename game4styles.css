@@ -1,0 +1,99 @@
+#content {
+    border: 1px solid #6f675b;
+    background-color: #f3eee8;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    }
+    
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    }   
+    
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    }
+body {
+    font-family: "Merriweather", "Georgia", serif;
+    text-align: center;
+    border: 1px solid #6f675b;
+    background-color: #f3eee8;
+    }
+
+h1 {
+    font-size: 20px;
+    color: #333;
+    }
+    
+.card {
+    background-color: #fffdf8;
+    border: 1px solid #cfc4b7;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+    }
+
+
+#question {
+    font-size: 68px;
+    font-weight: bold;
+    margin: 20px 0;
+    }
+
+#answer {
+    font-size: 34px;
+    padding: 8px;
+    width: 120px;
+    text-align: center;
+    margin-top: 10px;
+        
+    }
+#answer::-webkit-outer-spin-button,
+#answer::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+#feedback {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    }
+
+
+footer {
+    background-color: #ece1d6;
+    padding: 5px 0;
+    text-align: center;
+    }
+
+nav {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    }
+
+
+.button {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #7d755f;
+    border: 1px solid #6e6655;
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    font-weight: 600;
+    }
+
+.button:hover,
+.button:focus {
+    background-color: #5f5747;
+    }
