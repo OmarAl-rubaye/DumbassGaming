@@ -51,5 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
     startBtn.addEventListener('click', newGame);
     guessBtn.addEventListener('click', checkGuess);
 
+    guessInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            checkGuess();
+        }
+    });
+
     newGame();
 });
