@@ -10,7 +10,6 @@ cards.sort(() => 0.5 - Math.random()) ;
 
 const board = document.getElementById("gameBoard") ;
 
-// 🔥 pakotetaan voittoruutu piiloon alussa
 const winMessage = document.getElementById("winMessage");
 winMessage.classList.add("hidden");
 
