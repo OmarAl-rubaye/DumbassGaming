@@ -10,4 +10,4 @@ Henri Klint, GitHub: HKA4
 
 Omar Al-Rubaye, GitHub: OmarAl-rubaye
 
-Simo Kotajärvi, Github: simokottis
+Simo Kotajärvi, GitHub: simokottis
