@@ -43,8 +43,7 @@ body {
     align-items: center;
 }
 
-#cat,
-#cat-fallback {
+#cat {
     max-width: 65vw;
     max-height: 75vh;
     width: auto;
@@ -62,70 +61,10 @@ body {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: transform;
-}
-
-#cat {
     image-rendering: auto;
 }
 
-#cat-fallback {
-    width: 260px;
-    height: 260px;
-    background: radial-gradient(circle at 35% 35%, #ffe5b4 0%, #d4a574 100%);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 30px;
-}
-
-#cat-fallback .cat-eye {
-    position: relative;
-    width: 50px;
-    height: 60px;
-    background: white;
-    border-radius: 50%;
-    margin: 0 16px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-#cat-fallback .cat-pupil {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: black;
-    border-radius: 50%;
-    top: 20px;
-    left: 15px;
-}
-
-#cat-fallback .cat-nose {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    background: #ff69b4;
-    border-radius: 50%;
-    top: 120px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-#cat-fallback .cat-mouth {
-    position: absolute;
-    width: 40px;
-    height: 28px;
-    top: 140px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 2px solid black;
-    border-top: none;
-    border-radius: 0 0 35px 35px;
-}
-
-#cat.spinning,
-#cat-fallback.spinning {
+#cat.spinning {
     filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
 }
 
