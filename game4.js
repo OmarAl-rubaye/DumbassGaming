@@ -1,6 +1,11 @@
     var num1 = 0;
     var num2 = 0;
     var correctAnswer = 0;
+    
+    let score = 0;
+    let total = 0;
+    const scoreEl = document.getElementById("score");
+    
     function newQuestion() {
         num1 = Math.floor(Math.random() * 10) + 1;
         num2 = Math.floor(Math.random() * 10) + 1;
@@ -28,11 +33,17 @@
         if (event.key == "Enter") {
         var userAnswer = Number(document.getElementById("answer").value);
 
+        total++
+
         if (userAnswer == correctAnswer) {
           document.getElementById("feedback").innerText = "Correct! :)";
+          score++
         } else {
           document.getElementById("feedback").innerText = "Wrong! :( Correct answer was " + correctAnswer;
         }
+        
+        scoreEl.innerText = "Score: " + score + " / " + total;
+        
         setTimeout(newQuestion, 1000);
       }
     }
